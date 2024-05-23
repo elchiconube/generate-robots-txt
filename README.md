@@ -1,6 +1,10 @@
-# robots.txt Generator
+# Robots.txt Generator
 
-Welcome to the **robots.txt Generator**! This tool helps you create a `robots.txt` file easily. The project is built with [Next.js](https://nextjs.org/) and uses [Radix UI](https://www.radix-ui.com/) for the interface.
+Welcome to the **Robots.txt Generator**! This tool helps you create a `robots.txt` file easily. The project is built with [Next.js](https://nextjs.org/) and uses [Radix UI](https://www.radix-ui.com/) for the interface.
+
+[Check it out here!](https://www.generaterobotstxt.com/)
+
+![Robots.txt Generator](https://www.generaterobotstxt.com/images/og_image.png)
 
 ## Features
 
@@ -12,7 +16,11 @@ Welcome to the **robots.txt Generator**! This tool helps you create a `robots.tx
 
 # Contributing
 
-We welcome contributions! If you'd like to contribute, please follow these steps:
+Contributions are welcome!
+
+This project is open source and you can see it live [here](https://www.generaterobotstxt.com/). Feel free to open an issue or create a pull request if you want to collaborate.
+
+If you'd like to contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/your-feature`).
