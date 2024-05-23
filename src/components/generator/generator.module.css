@@ -1,0 +1,13 @@
+.code {
+  font-family: var(--code-font);
+  padding: var(--space-1);
+  background-color: var(--gray-4);
+  border-radius: var(--radius-2);
+  font-weight: lighter;
+}
+
+.sticky {
+  position: sticky;
+  top: var(--space-3);
+  z-index: 100;
+}

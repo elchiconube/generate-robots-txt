@@ -1,0 +1,33 @@
+.container {
+  .pre {
+    --letter-spacing: var(--letter-spacing-2);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: var(--space-2) 0;
+    height: 100%;
+    font-family: var(--code-font-family);
+    font-size: calc(var(--font-size-2) * var(--code-font-size-adjust));
+
+    .code {
+      font-family: var(--code-font);
+      display: block;
+      line-height: 22px;
+      padding: var(--space-3) var(--space-4);
+    }
+  }
+
+  .title {
+    margin-bottom: var(--space-4);
+  }
+
+  .text {
+    margin-bottom: var(--space-3);
+  }
+
+  .list {
+    margin: var(--space-3) 0 var(--space-6) var(--space-4);
+    .item {
+      margin-bottom: var(--space-2);
+    }
+  }
+}

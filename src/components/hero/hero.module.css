@@ -1,0 +1,12 @@
+.container {
+  border-bottom: 1px solid var(--gray-4);
+  margin-bottom: var(--space-4);
+}
+
+.text {
+  background-color: var(--gray-4);
+  padding: var(--space-2);
+  font-weight: lighter;
+  border-radius: var(--radius-4);
+  font-family: var(--code-font);
+}

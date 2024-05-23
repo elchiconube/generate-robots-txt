@@ -1,0 +1,22 @@
+.header {
+  border-bottom: 1px solid var(--gray-4);
+
+  .link {
+    text-decoration: none;
+    color: var(--gray-12);
+    display: flex;
+  }
+
+  .nav {
+    color: var(--gray-12);
+  }
+}
+
+.logo {
+  text-decoration: none;
+  white-space: nowrap;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}

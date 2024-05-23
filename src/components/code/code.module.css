@@ -1,0 +1,43 @@
+.container {
+  position: relative;
+}
+
+.textarea {
+  font-family: var(--code-font);
+  padding: var(--space-4);
+  min-height: 200px;
+  box-shadow: var(--shadow-2);
+  white-space: pre-wrap;
+}
+
+.status {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 35px;
+  height: 35px;
+  color: var(--gray-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.error {
+    background-color: var(--tomato-11);
+  }
+  &.valid {
+    background-color: var(--grass-9);
+  }
+}
+
+.msg {
+  background-color: var(--tomato-11);
+  color: var(--gray-1);
+  padding: var(--space-2);
+  border-radius: var(--radius-1);
+  font-weight: bold;
+  margin-top: var(--space-2);
+}
+/* valid
+error
+msg */

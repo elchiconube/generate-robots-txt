@@ -1,0 +1,10 @@
+.footer {
+  padding: var(--space-4) var(--space-2);
+  border-top: 1px solid var(--gray-4);
+  margin-top: var(--space-4);
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
