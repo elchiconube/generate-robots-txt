@@ -24,7 +24,7 @@ export default function Contribute() {
             I know sometimes it's hard to contribute on open source projects but
             I'm here to help you. You can contribute to this project by adding
             new features, fixing bugs, or improving the existing code creating a
-            pull request on our{" "}
+            pull request or issue on our{" "}
             <Link
               href={CONSTANTS.repository}
               title="Github project"
