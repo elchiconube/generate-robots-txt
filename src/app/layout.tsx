@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Theme } from "@radix-ui/themes";
@@ -95,6 +96,11 @@ export default function RootLayout({
             <Footer />
           </Theme>
         </ThemeProvider>
+        <Script
+          async
+          src="https://cloud.umami.is/script.js"
+          data-website-id="03fb5087-8d74-47f2-a3ee-e4725b26e1cd"
+        />
       </body>
     </html>
   );
