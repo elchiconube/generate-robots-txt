@@ -1,4 +1,5 @@
 import { Container, Flex, Heading, Text } from "@radix-ui/themes";
+import Image from "next/image";
 import styles from "./hero.module.css";
 
 interface HeroProps {
@@ -17,6 +18,22 @@ export default function Hero({ feature }: HeroProps) {
             The right robots.txt file for your project
           </Text>
         </Flex>
+        <Text as="p" align="center" mt="5">
+          <a
+            href="https://www.producthunt.com/posts/robots-txt-generator-3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ph}
+            title="Robots.txt Generator was ranked daily #2 for May 24th, 2024 on Product Hunt"
+          >
+            <Image
+              src="/images/ph.svg"
+              alt="Product Hunt Badge"
+              width="150"
+              height="45"
+            />
+          </a>
+        </Text>
       </Container>
     </article>
   );
