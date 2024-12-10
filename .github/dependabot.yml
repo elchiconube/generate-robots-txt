@@ -9,9 +9,15 @@ updates:
       timezone: "Europe/Madrid"
     open-pull-requests-limit: 10
     target-branch: "main"
-    labels:
-      - "dependencies"
-      - "automerge"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+    auto-merge: true
+    versioning-strategy: auto
+    commit-message:
+      prefix: "⬆️ "
+      include: "scope"
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
