@@ -18,7 +18,6 @@ jobs:
           node-version: '20.x'
           cache: 'npm'
           
-      # Añadimos este paso para actualizar el lock file
       - name: Update lock file
         run: npm install --package-lock-only
         
