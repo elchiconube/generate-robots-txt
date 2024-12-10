@@ -21,3 +21,4 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    lockfile-update: true
