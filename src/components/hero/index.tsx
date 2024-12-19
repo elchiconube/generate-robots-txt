@@ -1,6 +1,7 @@
 import { Container, Flex, Heading, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import styles from "./hero.module.css";
+import Robot from "../robot";
 
 interface HeroProps {
   feature: string;
@@ -11,6 +12,7 @@ export default function Hero({ feature }: HeroProps) {
     <article className={styles.container}>
       <Container px="2" py="9">
         <Flex gap="2" direction="column" align="center">
+          <Robot />
           <Heading size="9" mb="4">
             {feature} your <Text className={styles.text}>robots.txt</Text>
           </Heading>
