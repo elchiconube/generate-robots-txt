@@ -1,6 +1,13 @@
 :root {
   --code-font: "Fira Code", Consolas, Monaco, Lucida Console, Liberation Mono,
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  --text-area-border-width: 0px;
+}
+
+textarea {
+  border-style: none; 
+  border-color: transparent; 
+  overflow: auto;        
 }
 
 * {

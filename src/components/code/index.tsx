@@ -112,11 +112,22 @@ export default function Code({ value, onClear, onChangeValue }: CodeProps) {
 
   return (
     <Container maxWidth="var(--container-2)" className={styles.container}>
-      <TextArea
-        className={styles.textarea}
-        value={value}
-        onChange={(e) => onChangeValue(e.target.value)}
-      />
+      <div className={styles.wrapper}>
+        <p className={styles.title}>
+          robots.txt
+        </p>
+        <div className={styles.terminal}>
+          <i className={`${styles.terminal__button} ${styles.red}`} />
+          <i className={`${styles.terminal__button} ${styles.yellow}`} />
+          <i className={`${styles.terminal__button} ${styles.green}`} />
+        </div>        
+        <TextArea
+          className={styles.textarea}
+          value={value}
+          onChange={(e) => onChangeValue(e.target.value)}
+          variant="soft"
+        />
+      </div>
       {value && (
         <div
           className={`${styles.status} ${

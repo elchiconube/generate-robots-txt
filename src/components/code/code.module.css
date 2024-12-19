@@ -2,20 +2,67 @@
   position: relative;
 }
 
+.title{
+  font-family: var(--code-font);
+  text-align: center;
+  position: absolute;
+  top: var(--space-1);
+  width: 100%;
+  color: var(--slate-8);
+
+}
+
+.terminal {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.terminal__button {
+  width: var(--space-3);
+  height: var(--space-3);
+  border-radius: 50%;
+}
+
+.terminal__button.red {
+  background-color: var(--tomato-10);
+}
+
+.terminal__button.yellow {
+  background-color: var(--amber-10);
+}
+
+.terminal__button.green {
+  background-color: var(--grass-10);
+}
+
+.wrapper {
+  background-color: #252a33;
+  padding: var(--space-6) var(--space-4) var(--space-4) var(--space-4);
+  border-radius: var(--space-2);
+  position: relative;
+}
+
 .textarea {
   font-family: var(--code-font);
-  padding: var(--space-4);
   min-height: 200px;
-  box-shadow: var(--shadow-2);
   white-space: pre-wrap;
+  background-color: #252a33;
+  color: var(--gray-12);
+  box-sizing: border-box;
+  outline: none;
+  border: none;
 }
 
 .status {
   position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
-  width: 35px;
-  height: 35px;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 30px;
+  height: 30px;
   color: var(--gray-1);
   border-radius: 50%;
   display: flex;
@@ -23,7 +70,7 @@
   justify-content: center;
 
   &.error {
-    background-color: var(--tomato-11);
+    background-color: var(--tomato-9);
   }
   &.valid {
     background-color: var(--grass-9);
@@ -31,7 +78,7 @@
 }
 
 .msg {
-  background-color: var(--tomato-11);
+  background-color: var(--tomato-9);
   color: var(--gray-1);
   padding: var(--space-2);
   border-radius: var(--radius-1);

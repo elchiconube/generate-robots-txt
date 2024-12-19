@@ -1,5 +1,9 @@
 .header {
   border-bottom: 1px solid var(--gray-4);
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  z-index: 2;
 
   .link {
     text-decoration: none;
