@@ -14,7 +14,7 @@ export default function Faqs() {
   return (
     <Container id="faqs" className={styles.container}>
       <Heading as="h2" size="8" align="center" mb="2">
-        Frequenly asked questions
+        Frequently asked questions
       </Heading>
       <Text as="p" align="center" size="4">
         Here are some common questions about robots.txt files and how to use

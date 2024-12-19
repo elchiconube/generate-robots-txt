@@ -25,18 +25,17 @@ export default function Header() {
             />
           </Link>
           <Flex gap="5" align="center">
-            <Link className={styles.nav} href="/" size="3" weight="bold">
+            <Link className={styles.nav} href="/" title="Generate your robots.txt">
               Generator
             </Link>
             <Link
               className={styles.nav}
               href="/validator"
-              size="3"
-              weight="bold"
+              title="Validate your robots.txt"
             >
               Validator
             </Link>
-            <Link className={styles.nav} href="#faqs" size="3" weight="bold">
+            <Link className={styles.nav} href="#faqs" title="Frequently Asked Questions">
               FAQs
             </Link>
 
@@ -45,8 +44,6 @@ export default function Header() {
             <Link
               className={styles.link}
               href={CONSTANTS.repository}
-              size="3"
-              weight="bold"
               rel="noreferrer"
               target="_blank"
               title="Check the project on GitHub"

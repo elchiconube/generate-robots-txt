@@ -3,21 +3,22 @@
   position: sticky;
   top: 0;
   background-color: var(--color-background);
-  z-index: 2;
+  z-index: 2;  
+}
 
-  .link {
-    text-decoration: none;
-    color: var(--gray-12);
-    display: flex;
-  }
-
-  .nav {
-    color: var(--gray-12);
-  }
+.nav {
+  color: var(--gray-12);
+  text-decoration: none;
 }
 
 .logo{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--gray-12);
+  display: flex;
 }
