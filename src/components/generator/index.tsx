@@ -27,7 +27,7 @@ export interface Configuration {
 }
 
 export default function Generator() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("User-agent: *\nDisallow:");
   const [selectedBots, setSelectedBots] = useState({});
   const [blockAllBots, setBlockAllBots] = useState(false);
 
