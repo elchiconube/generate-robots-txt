@@ -5,9 +5,9 @@ import { RotateCcw, CloudDownload, ShieldCheck, ShieldX } from "lucide-react";
 import styles from "./code.module.css";
 
 interface CodeProps {
-  value: string;
-  onClear: () => void;
-  onChangeValue: (value: string) => void;
+  readonly value: string;
+  readonly onClear: () => void;
+  readonly onChangeValue: (value: string) => void;
 }
 
 export default function Code({ value, onClear, onChangeValue }: CodeProps) {

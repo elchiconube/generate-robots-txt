@@ -1,7 +1,6 @@
 .container {
   .pre {
     --letter-spacing: var(--letter-spacing-2);
-    box-sizing: border-box;
     overflow: hidden;
     margin: var(--space-2) 0;
     height: 100%;

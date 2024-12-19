@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <Container p="2">
+      <Container px="6" py="2" size="4">
         <Flex gap="4" align="center" justify="between">
           <Text className={styles.text} weight={"bold"}>
             © {currentYear} Generate robots.txt dot com

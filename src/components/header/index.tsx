@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Container, Flex, Link, Separator } from "@radix-ui/themes";
+import Link from "next/link";
+import { Container, Flex, Separator } from "@radix-ui/themes";
 
 import CONSTANTS from "@/constants";
 
@@ -8,7 +9,7 @@ import styles from "./header.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Container p="2">
+      <Container px="6" py="2" size="4">
         <Flex gap="2" justify="between" align="center">
           <Link
             className={styles.logo}

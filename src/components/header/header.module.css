@@ -16,11 +16,8 @@
   }
 }
 
-.logo {
-  text-decoration: none;
-  white-space: nowrap;
-  font-style: normal;
+.logo{
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  justify-content: center;
 }
