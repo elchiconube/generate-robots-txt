@@ -1,32 +1,99 @@
 .container {
-  .pre {
-    --letter-spacing: var(--letter-spacing-2);
-    overflow: hidden;
-    margin: var(--space-2) 0;
-    height: 100%;
-    font-family: var(--code-font-family);
-    font-size: calc(var(--font-size-2) * var(--code-font-size-adjust));
+  position: relative;
+  width: 100%;
+  padding-top: 3rem;
+}
 
-    .code {
-      font-family: var(--code-font);
-      display: block;
-      line-height: 22px;
-      padding: var(--space-3) var(--space-4);
-    }
-  }
+.pre {
+  overflow: hidden;
+  margin: 0.5rem 0;
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background-color: hsl(var(--gray-3));
+  border-radius: var(--radius-3);
+}
 
-  .title {
-    margin-bottom: var(--space-4);
-  }
+.code {
+  font-family: inherit;
+  display: block;
+  line-height: 1.5;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
 
-  .text {
-    margin-bottom: var(--space-3);
-  }
+.errorCode {
+  color: hsl(var(--red-11));
+  background-color: hsl(var(--red-3));
+}
 
-  .list {
-    margin: var(--space-3) 0 var(--space-6) var(--space-4);
-    .item {
-      margin-bottom: var(--space-2);
-    }
-  }
+.title {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: hsl(var(--gray-12));
+}
+
+.text {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  color: hsl(var(--gray-11));
+}
+
+.list {
+  margin: 0.75rem 0 1.5rem 1rem;
+  list-style-type: disc;
+}
+
+.item {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.link {
+  color: hsl(var(--blue-11));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: hsl(var(--blue-10));
+  text-decoration: underline;
+}
+
+.card {
+  backdrop-filter: blur(8px);
+  background-color: color-mix(in srgb, var(--color-background) 95%, transparent);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.container::before {
+  /* Variables para el patrón de puntos */
+  --dots-bg: var(--background-elevation-base, white);
+  --dots-color: var(--background-disabled, var(--accent-3));
+  
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Patrón de puntos */
+  background: 
+    linear-gradient(90deg, var(--dots-bg) 10px, transparent 1%) 50%,
+    linear-gradient(var(--dots-bg) 10px, transparent 1%) 50%,
+    var(--dots-color);
+  background-position: -3px -3px;
+  background-size: 12px 12px;
+  
+  /* Efecto de máscara y otros */
+  mask-image: radial-gradient(ellipse 100% 200% at 50% 0%, #000 40%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 1;
 }

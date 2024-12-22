@@ -4,6 +4,7 @@
   height: 85dvh;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .text {
