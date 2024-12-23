@@ -22,3 +22,13 @@ updates:
           - "minor"
           - "patch"
     lockfile-update: true
+    labels:
+      - "dependencies"
+      - "automerge"
+    pull-request-branch-name:
+      separator: "-"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    reviewers:
+      - "${{github.repository_owner}}"
