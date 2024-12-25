@@ -1,7 +1,6 @@
 .container {
   padding: var(--space-6) 0;
   border-top: 1px solid var(--gray-4);
-  border-bottom: 1px solid var(--gray-4);
   min-height: 60vh;
   display: flex;
   align-items: center;

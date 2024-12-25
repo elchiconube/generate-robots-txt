@@ -35,6 +35,14 @@ export default function Header() {
             >
               Validator
             </Link>
+
+            <Link
+              className={styles.nav}
+              href="/analyze-robots"
+              title="Analyze robots.txt from a website"
+            >
+              Analyze Robots
+            </Link>
             <Link className={styles.nav} href="#faqs" title="Frequently Asked Questions">
               FAQs
             </Link>

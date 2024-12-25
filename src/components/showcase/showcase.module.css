@@ -1,0 +1,89 @@
+.container {
+  position: relative;
+  padding: var(--space-9) 0;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+}
+
+.card {
+  flex-shrink: 0;
+  width: 300px;
+  border: 1px solid var(--gray-4);
+  border-radius: var(--space-2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px -15px rgba(0,0,0,0.2);
+}
+
+.cardContent {
+  background: white;
+  padding: var(--space-5);
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.cardDots {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(var(--card-color) 1px, transparent 1px),
+    radial-gradient(var(--card-color) 1px, transparent 1px);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  filter: blur(1px);
+}
+
+.cardGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 0%, 
+    var(--card-color), 
+    transparent 70%
+  );
+  opacity: 0.15;
+  transition: opacity 0.3s;
+}
+
+.cardContent:hover .cardGlow {
+  opacity: 0.3;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.33%); }
+}
+
+.track:hover {
+  animation-play-state: paused;
+}

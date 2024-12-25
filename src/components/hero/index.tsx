@@ -5,15 +5,13 @@ import Robot from "../robot";
 import GridDecoration from "../grid-decoration";
 
 interface HeroProps {
-  feature: string;
+  feature: string; 
 }
-
+ 
 export default function Hero({ feature }: HeroProps) {
   return (
     <article className={styles.container}>
-      
       <GridDecoration />
-
       <Container px="2" py="9">
         <Flex gap="2" direction="column" align="center">
           <Robot />

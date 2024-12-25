@@ -2,17 +2,18 @@ import { useState, useEffect } from "react";
 import { Container, Button, Flex, Text, TextArea } from "@radix-ui/themes";
 import { RotateCcw, CloudDownload, ShieldCheck, ShieldX } from "lucide-react";
 
-import styles from "./code.module.css";
+import styles from "./terminal.module.css";
 
-interface CodeProps {
+interface TerminalProps {
   readonly value: string;
-  readonly onClear: () => void;
-  readonly onChangeValue: (value: string) => void;
+  readonly onClear?: () => void;
+  readonly onChangeValue?: (value: string) => void;
 }
 
-export default function Code({ value, onClear, onChangeValue }: CodeProps) {
+export default function Terminal({ value, onClear, onChangeValue }: TerminalProps) {
   const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
 
   function validateRobotsTxt(robotsTxt: string) {
     const lines = robotsTxt.split("\n");
@@ -124,7 +125,7 @@ export default function Code({ value, onClear, onChangeValue }: CodeProps) {
         <TextArea
           className={styles.textarea}
           value={value}
-          onChange={(e) => onChangeValue(e.target.value)}
+          onChange={(e) => onChangeValue ?  onChangeValue(e.target.value) : null}
           variant="soft"
         />
       </div>
@@ -153,10 +154,10 @@ export default function Code({ value, onClear, onChangeValue }: CodeProps) {
           <CloudDownload strokeWidth={1.25} />
           Download
         </Button>
-        <Button size="4" variant="outline" onClick={onClear}>
+        {onClear && (<Button size="4" variant="outline" onClick={onClear}>
           <RotateCcw strokeWidth={1.25} />
           Reset
-        </Button>
+        </Button>)}
       </Flex>
     </Container>
   );
