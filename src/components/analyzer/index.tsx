@@ -115,7 +115,7 @@ const RobotsAnalyzer = () => {
             onChange={(e) => setUrl(e.target.value)}
           />
           
-          <Button onClick={fetchRobotsTxt}>
+          <Button onClick={() => fetchRobotsTxt(url)} disabled={loading}>
             Analyze Robots.txt
           </Button>
         </div>
