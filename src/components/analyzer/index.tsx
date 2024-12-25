@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useState } from 'react';
+import { JSX, useState, FormEvent } from 'react';
 import { TextField, Button, Card, Box, Text, Container, Code, Grid, Heading } from '@radix-ui/themes';
 import Terminal from '@/components/terminal';
 import GridDecoration from '@/components/grid-decoration';
@@ -16,20 +16,29 @@ const RobotsAnalyzer = () => {
   const [analysis, setAnalysis] = useState('');
   const [robotsContent, setRobotsContent] = useState('');
 
-  const validateUrl = (url : string) => {
+  const validateUrl = (url: string) => {
+    // Si la URL no tiene protocolo, añadimos https://
+    let urlToTest = url.trim();
+    if (!urlToTest.startsWith('http://') && !urlToTest.startsWith('https://')) {
+      urlToTest = `https://${urlToTest}`;
+    }
+
     try {
-      new URL(url);
-      return true;
+      new URL(urlToTest);
+      return urlToTest;
     } catch {
-      return false;
+      return null;
     }
   };
 
-  const fetchRobotsTxt = async (suggestion?:string) => {
+  const handleSubmit = async (e?: FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
 
-    const websiteUrl = suggestion ?? url;
-    if (!validateUrl(websiteUrl)) {
-      setError('Please enter a valid URL');
+    const websiteUrl = validateUrl(url);
+    if (!websiteUrl) {
+      setError('Please enter a valid domain');
       return;
     }
 
@@ -53,6 +62,21 @@ const RobotsAnalyzer = () => {
       setError('Could not fetch or analyze robots.txt');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const onClickSuggestion = (url: string) => {
+    setUrl(url);
+    const validUrl = validateUrl(url);
+    if (validUrl) {
+      setUrl(validUrl);
+      handleSubmit();
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
     }
   };
 
@@ -94,13 +118,6 @@ const RobotsAnalyzer = () => {
     return content;
   };
 
-  const onClickSuggestion = (url: string) => {
-    setUrl(url);
-    fetchRobotsTxt(url);
-  }
-
-
-
   return (
     <Container className={styles.container} size="2">
       <GridDecoration />
@@ -108,34 +125,31 @@ const RobotsAnalyzer = () => {
         <Heading size="8" align="center">
           <Text className={styles.text}>Analyze Robots.txt of any website</Text>
         </Heading>
-        <div className={styles.wrapper}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.wrapper}>
           <TextField.Root
-            placeholder="Enter website URL (e.g., https://example.com)"
+            placeholder="Enter website URL (e.g., example.com)"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-          />
-          
-          <Button onClick={() => fetchRobotsTxt(url)} disabled={loading}>
+            onKeyDown={handleKeyPress}
+          />          
+          <Button type="submit" disabled={loading}>
             Analyze Robots.txt
           </Button>
-        </div>
-        {error && (
-          <Text color="red" size="2">{error}</Text>
-        )}
-
-        {!url && <Showcase onClickWebsite={onClickSuggestion} />}
-
+          </div>
+          {error && <Text color="red" size="2">{error}</Text>}
+        </form>
         {loading && <RobotCss isLoading />}
-        
-        {analysis && (<div className="space-y-4">
-          <Terminal value={robotsContent} />
-        </div>)}
-
+        {analysis && (
+          <div className="space-y-4">
+            <Terminal value={robotsContent} />
+          </div>
+        )}
         {analysis && (
           <Container className={styles.analysis}>
             <Heading as="h2" size="7" align="center" mb="2">Result</Heading>
             <Text as="p" size="3" align="center" mb="5">
-              Below is the analysis of the robots.txt file from from {url}.
+              Below is the analysis of the robots.txt file from {url}.
             </Text>
             <Grid gap="4">
               <Card>
@@ -150,6 +164,7 @@ const RobotsAnalyzer = () => {
             </Grid>
           </Container>
         )}
+        <Showcase onClickWebsite={onClickSuggestion} />
       </Box>
     </Container>
   );
