@@ -3,15 +3,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './robot.module.css';
 
-const RobotCss = () => {
+interface RobotProps {
+  isLoading?: boolean;
+}
+
+const RobotCss = ({ isLoading = false }: RobotProps) => {
   const [isOn, setIsOn] = useState(true);
   const leftEyeRef = useRef<HTMLDivElement>(null);
   const rightEyeRef = useRef<HTMLDivElement>(null);
   const robotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isOn) {
-      // Reset eye positions when turned off
+    if (!isOn || isLoading) {
+      // Reset eye positions when turned off or loading
       if (leftEyeRef.current) leftEyeRef.current.style.transform = 'translate(0, 0)';
       if (rightEyeRef.current) rightEyeRef.current.style.transform = 'translate(0, 0)';
       return;
@@ -20,7 +24,6 @@ const RobotCss = () => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!leftEyeRef.current || !rightEyeRef.current || !robotRef.current) return;
 
-      const robotRect = robotRef.current.getBoundingClientRect();
       const leftEyeRect = leftEyeRef.current.getBoundingClientRect();
       const rightEyeRect = rightEyeRef.current.getBoundingClientRect();
 
@@ -52,7 +55,7 @@ const RobotCss = () => {
 
     document.addEventListener('mousemove', handleMouseMove);
     return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, [isOn]);
+  }, [isOn, isLoading]);
 
   const toggleRobot = () => {
     setIsOn(!isOn);
@@ -60,32 +63,45 @@ const RobotCss = () => {
 
   return (
     <div className={styles.container}>
-      <div ref={robotRef} className={styles.head}>
+      <div 
+        ref={robotRef} 
+        className={`${styles.head} ${isLoading ? styles.loading : ''}`}
+      >
         <div 
-          className={`${styles.light} ${!isOn ? styles.off : ''}`}
+          className={`${styles.light} ${!isOn ? styles.off : ''} ${isLoading ? styles.loadingLight : ''}`}
           onClick={toggleRobot}
         >
           <div className={styles.bulb}></div>
           <div className={styles.stick}></div>
         </div>
-        <div className={styles.ears}>
+        <div className={`${styles.ears} ${isLoading ? styles.loadingEars : ''}`}>
           <div className={styles.ear}></div>
           <div className={styles.ear}></div>
         </div>
         <div className={styles.eyes}>
           <div className={styles.eyeWrapper}>
-            <div ref={leftEyeRef} className={`${styles.eye} ${!isOn ? styles.eyeOff : ''}`}></div>
+            <div 
+              ref={leftEyeRef} 
+              className={`${styles.eye} 
+                ${!isOn ? styles.eyeOff : ''} 
+                ${isLoading ? styles.loadingEye : ''}`}
+            ></div>
           </div>
           <div className={styles.eyeWrapper}>
-            <div ref={rightEyeRef} className={`${styles.eye} ${!isOn ? styles.eyeOff : ''}`}></div>
+            <div 
+              ref={rightEyeRef} 
+              className={`${styles.eye} 
+                ${!isOn ? styles.eyeOff : ''} 
+                ${isLoading ? styles.loadingEye : ''}`}
+            ></div>
           </div>
         </div>
         <div className={styles.nose}></div>
-        <div className={styles.mouth}>
-          <div className={styles.tooth}></div>
-          <div className={styles.tooth}></div>
-          <div className={styles.tooth}></div>
-          <div className={styles.tooth}></div>
+        <div className={`${styles.mouth} ${isLoading ? styles.loadingMouth : ''}`}>
+          <div className={`${styles.tooth} ${isLoading ? styles.loadingTooth : ''}`}></div>
+          <div className={`${styles.tooth} ${isLoading ? styles.loadingTooth : ''}`}></div>
+          <div className={`${styles.tooth} ${isLoading ? styles.loadingTooth : ''}`}></div>
+          <div className={`${styles.tooth} ${isLoading ? styles.loadingTooth : ''}`}></div>
         </div>
       </div>
     </div>

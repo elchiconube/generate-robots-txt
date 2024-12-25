@@ -5,6 +5,7 @@ import { TextField, Button, Card, Box, Text, Container, Code, Grid, Heading } fr
 import Terminal from '@/components/terminal';
 import GridDecoration from '@/components/grid-decoration';
 import Showcase from '@/components/showcase';
+import RobotCss from '@/components/robot';
 
 import styles from './analyzer.module.css';
 
@@ -24,8 +25,10 @@ const RobotsAnalyzer = () => {
     }
   };
 
-  const fetchRobotsTxt = async () => {
-    if (!validateUrl(url)) {
+  const fetchRobotsTxt = async (suggestion?:string) => {
+
+    const websiteUrl = suggestion ?? url;
+    if (!validateUrl(websiteUrl)) {
       setError('Please enter a valid URL');
       return;
     }
@@ -34,7 +37,7 @@ const RobotsAnalyzer = () => {
     setError('');
 
     try {
-      const robotsUrl = new URL('/robots.txt', url).href;
+      const robotsUrl = new URL('/robots.txt', websiteUrl).href;
       const response = await fetch('/api/analyze-robots', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -93,8 +96,10 @@ const RobotsAnalyzer = () => {
 
   const onClickSuggestion = (url: string) => {
     setUrl(url);
-    fetchRobotsTxt();
+    fetchRobotsTxt(url);
   }
+
+
 
   return (
     <Container className={styles.container} size="2">
@@ -119,6 +124,8 @@ const RobotsAnalyzer = () => {
         )}
 
         {!url && <Showcase onClickWebsite={onClickSuggestion} />}
+
+        {loading && <RobotCss isLoading />}
         
         {analysis && (<div className="space-y-4">
           <Terminal value={robotsContent} />
