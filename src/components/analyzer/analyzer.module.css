@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-9);
+  position: relative;
+}
+
+.analysis {
+  padding: var(--space-5) 0;
+  margin: var(--space-5) 0;
+}
+
+.box {
+  z-index: 1;
+  position: relative;
+  padding: var(--space-4) 0;
+}
+
+.pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background-color: hsl(var(--gray-3));
+  border-radius: var(--radius-3);
+}
+
+.code {
+  font-family: inherit;
+  display: block;
+  line-height: 1.5;
+  background-color: transparent;
+  white-space: pre-wrap;
+}
+
+.wrapper {
+  display: grid;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: center;
+  grid-template-columns: 1fr auto;
+  margin-bottom: var(--space-8);
+}
+
+.form {
+  padding: var(--space-8) 0 var(--space-1);
+  margin-bottom: var(--space-8);
+}

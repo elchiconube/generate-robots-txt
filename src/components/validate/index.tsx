@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Container, Heading, Text } from "@radix-ui/themes";
 
-import Code from "@/components/code";
+import Terminal from "@/components/terminal";
 
 import styles from "./validate.module.css";
 
@@ -23,7 +23,7 @@ export default function Validate() {
         Validate your file syntax to ensure it's correctly formatted.
       </Text>
 
-      <Code
+      <Terminal
         value={value}
         onChangeValue={(value: string) => setValue(value)}
         onClear={onReset}

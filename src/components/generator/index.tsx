@@ -14,7 +14,7 @@ import {
 import { PackageOpen, AppWindow } from "lucide-react";
 import { defaults, apps, aiBots } from "@/configs";
 
-import Code from "@/components/code";
+import Terminal from "@/components/terminal";
 import Sitemap from "@/components/sitemap";
 import Aibots from "@/components/aibots";
 
@@ -193,7 +193,7 @@ export default function Generator() {
               Your raw file, feel free to create it by your own or download it
             </Text>
 
-            <Code
+            <Terminal
               value={value}
               onChangeValue={(value: string) => setValue(value)}
               onClear={onReset}

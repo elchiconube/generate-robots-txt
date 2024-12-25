@@ -1,5 +1,4 @@
 import Hero from "@/components/hero";
-import Faqs from "@/components/faqs";
 import Content from "@/components/content";
 
 import Generator from "@/components/generator";

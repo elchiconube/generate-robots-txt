@@ -29,6 +29,49 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Loading Animations */
+@keyframes loadingLight {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.3)); }
+  50% { filter: drop-shadow(0 0 15px rgba(255, 165, 0, 0.8)); }
+}
+
+@keyframes loadingEarPulse {
+  0%, 100% { transform: translateY(-50%) scaleY(1); }
+  50% { transform: translateY(-50%) scaleY(1.2); }
+}
+
+@keyframes loadingEye {
+  0% { transform: rotate(0deg) translateX(3px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(3px) rotate(-360deg); }
+}
+
+@keyframes loadingTooth {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Loading Classes */
+.loadingLight .bulb {
+  animation: loadingLight 1s infinite !important;
+}
+
+.loadingEars .ear {
+  animation: loadingEarPulse 1s infinite;
+}
+
+.loadingEye {
+  animation: loadingEye 1s infinite linear !important;
+}
+
+.loadingTooth {
+  animation: loadingTooth 0.5s infinite;
+}
+
+.loadingTooth:nth-child(1) { animation-delay: 0s; }
+.loadingTooth:nth-child(2) { animation-delay: 0.1s; }
+.loadingTooth:nth-child(3) { animation-delay: 0.2s; }
+.loadingTooth:nth-child(4) { animation-delay: 0.3s; }
+
 .light {
   left: 50%;
   transform: translateX(-50%);
@@ -81,6 +124,7 @@
   top: 50%;
   transform: translateY(-50%);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform-origin: center;
 }
 
 .ear:first-of-type {
