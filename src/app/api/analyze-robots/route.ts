@@ -63,7 +63,7 @@ function analyzeRobotsTxt(content: string): string {
     
     if (!trimmedLine.includes(':')) continue;
     
-    const [directive, value] = trimmedLine.split(':').map(part => part.trim().toLowerCase());
+    const [directive, value] = trimmedLine.replace(':','|').split('|').map(part => part.trim().toLowerCase());
     
     switch(directive) {
       case 'user-agent':
@@ -86,7 +86,7 @@ function analyzeRobotsTxt(content: string): string {
 
   // Generate human-readable analysis
   Object.entries(rules).forEach(([agent, ruleSet], index) => {
-    analysis.push(`\n\nAgent rules ${index + 1}: ${agent}`);
+    analysis.push(`\n\nAgent rules ${index + 1}: ${agent} - `);
     
     if (ruleSet.disallow.length) {
       analysis.push('Blocked from crawling:');
@@ -104,7 +104,10 @@ function analyzeRobotsTxt(content: string): string {
   });
 
   if (sitemaps.length) {
-    analysis.push(`\n\nSitemaps declared: ${sitemaps.join(', ')}`);
+    analysis.push(`\n\nSitemaps declared:`);
+    analysis.push('PATHS_START')
+    sitemaps.forEach(path => analysis.push(path));
+    analysis.push('PATHS_END');
   }
 
   return analysis.join('\n');
