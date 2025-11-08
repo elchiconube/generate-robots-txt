@@ -246,10 +246,6 @@ export const aiBots = [
     code: `User-agent: ImagesiftBot\nDisallow: /`,
   },
   {
-    title: "Omgilibot",
-    code: `User-agent: Omgilibot\nDisallow: /`,
-  },
-  {
     title: "Omgili",
     code: `User-agent: Omgili\nDisallow: /`,
   },
