@@ -4,31 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "08:00"
-      timezone: "Europe/Madrid"
-    open-pull-requests-limit: 10
-    target-branch: "main"
-    auto-merge: true
-    versioning-strategy: auto
-    commit-message:
-      prefix: "⬆️ "
-      include: "scope"
-    groups:
-      minor-and-patch:
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
-    lockfile-update: true
-    labels:
-      - "dependencies"
-      - "automerge"
-    pull-request-branch-name:
-      separator: "-"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
-    reviewers:
-      - "${{github.repository_owner}}"
+    open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
