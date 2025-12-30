@@ -5,13 +5,16 @@
   "author": "Oscar Bustos - elchiconube",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build --webpack",
+    "dev": "next dev --webpack",
+    "pages:build": "npx @cloudflare/next-on-pages",
     "lint": "next lint",
-    "test": "echo \"No tests specified\" && exit 0"
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "deploy": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.14.7",
     "@radix-ui/themes": "^3.2.1",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.562.0",
