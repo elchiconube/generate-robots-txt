@@ -24,7 +24,7 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^25",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9",
