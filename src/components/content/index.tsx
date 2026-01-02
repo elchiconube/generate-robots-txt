@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Container, Heading, Link } from "@radix-ui/themes";
 
 import styles from "./content.module.css";
@@ -9,11 +8,11 @@ export default function Content() {
     <Container className={styles.container} maxWidth="var(--container-3)">
       <article className={styles.article}>
         <figure>
-          <Image
+          <img
             src="/images/code.svg"
             width={400}
             height={400}
-            alt="<span className={styles.code}>Robots.txt</span>"
+            alt="Robots.txt"
           />
         </figure>
         <div>

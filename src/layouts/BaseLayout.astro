@@ -1,0 +1,106 @@
+---
+import { Theme } from "@radix-ui/themes";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import Contribute from "@/components/contribute";
+import Faqs from "@/components/faqs";
+
+import "@radix-ui/themes/styles.css";
+import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Robots.txt Generator - A beautifully open-source robots.txt generator",
+  description = "An open-source robots.txt generator.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta property="og:title" content="Robots.txt Generator" />
+    <meta
+      property="og:description"
+      content="A beautifully open-source robots.txt generator"
+    />
+    <meta property="og:url" content="https://generaterobotstxt.com" />
+    <meta
+      property="og:image"
+      content="https://generaterobotstxt.com/images/og_image.png"
+    />
+    <meta
+      property="og:site_name"
+      content="Robots.txt Generator - A beautifully open-source robots.txt generator"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+
+    <meta
+      name="twitter:title"
+      content="Robots.txt Generator - A beautifully open-source robots.txt generator"
+    />
+    <meta
+      name="twitter:description"
+      content="A beautifully open-source robots.txt generator"
+    />
+    <meta
+      name="twitter:image"
+      content="https://generaterobotstxt.com/images/og_image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    />
+
+    <meta name="theme-color" content="#171717" />
+
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    {
+      import.meta.env.PROD && (
+        <script
+          async
+          src="https://cloud.umami.is/script.js"
+          data-website-id="03fb5087-8d74-47f2-a3ee-e4725b26e1cd"
+        />
+      )
+    }
+  </head>
+  <body style="font-family: 'Inter', sans-serif;">
+    <Theme>
+      <Header client:load />
+      <slot />
+      <Faqs client:idle />
+      <Contribute client:load />
+      <Footer client:load />
+    </Theme>
+  </body>
+</html>

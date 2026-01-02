@@ -1,13 +1,12 @@
 import { Container, Flex, Heading, Text } from "@radix-ui/themes";
-import Image from "next/image";
 import styles from "./hero.module.css";
 import Robot from "../robot";
 import GridDecoration from "../grid-decoration";
 
 interface HeroProps {
-  feature: string; 
+  feature: string;
 }
- 
+
 export default function Hero({ feature }: HeroProps) {
   return (
     <article className={styles.container}>
@@ -30,7 +29,7 @@ export default function Hero({ feature }: HeroProps) {
             className={styles.ph}
             title="Robots.txt Generator was ranked daily #2 for May 24th, 2024 on Product Hunt"
           >
-            <Image
+            <img
               src="/images/ph.svg"
               alt="Product Hunt Badge"
               width="150"

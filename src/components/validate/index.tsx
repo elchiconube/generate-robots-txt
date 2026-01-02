@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Container, Heading, Text } from "@radix-ui/themes";
 

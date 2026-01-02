@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Container, Flex, Separator } from "@radix-ui/themes";
 
 import CONSTANTS from "@/constants";
@@ -11,59 +9,63 @@ export default function Header() {
     <header className={styles.header}>
       <Container px="6" py="2" size="4">
         <Flex gap="2" justify="between" align="center">
-          <Link
+          <a
             className={styles.logo}
             href="/"
             title="Generate robots.txt dot com"
           >
-            <Image
+            <img
               alt="Generate robots.txt logo"
               loading="lazy"
               width="28"
               height="28"
               src="/images/logo.png"
             />
-          </Link>
+          </a>
           <Flex gap="5" align="center">
-            <Link className={styles.nav} href="/" title="Generate your robots.txt">
+            <a className={styles.nav} href="/" title="Generate your robots.txt">
               Generator
-            </Link>
-            <Link
+            </a>
+            <a
               className={styles.nav}
               href="/validator"
               title="Validate your robots.txt"
             >
               Validator
-            </Link>
+            </a>
 
-            <Link
+            <a
               className={styles.nav}
               href="/analyze-robots"
               title="Analyze robots.txt from a website"
             >
               Analyze Robots
-            </Link>
-            <Link className={styles.nav} href="#faqs" title="Frequently Asked Questions">
+            </a>
+            <a
+              className={styles.nav}
+              href="#faqs"
+              title="Frequently Asked Questions"
+            >
               FAQs
-            </Link>
+            </a>
 
             <Separator orientation="vertical" size="1" />
 
-            <Link
+            <a
               className={styles.link}
               href={CONSTANTS.repository}
               rel="noreferrer"
               target="_blank"
               title="Check the project on GitHub"
             >
-              <Image
+              <img
                 alt="GitHub Logo"
                 loading="lazy"
                 width="28"
                 height="21"
                 src="/images/github.svg"
               />
-            </Link>
+            </a>
           </Flex>
         </Flex>
       </Container>

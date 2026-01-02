@@ -10,10 +10,13 @@ interface TerminalProps {
   readonly onChangeValue?: (value: string) => void;
 }
 
-export default function Terminal({ value, onClear, onChangeValue }: TerminalProps) {
+export default function Terminal({
+  value,
+  onClear,
+  onChangeValue,
+}: TerminalProps) {
   const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
 
   function validateRobotsTxt(robotsTxt: string) {
     const lines = robotsTxt.split("\n");
@@ -114,18 +117,16 @@ export default function Terminal({ value, onClear, onChangeValue }: TerminalProp
   return (
     <Container maxWidth="var(--container-2)" className={styles.container}>
       <div className={styles.wrapper}>
-        <p className={styles.title}>
-          robots.txt
-        </p>
+        <p className={styles.title}>robots.txt</p>
         <div className={styles.terminal}>
           <i className={`${styles.terminal__button} ${styles.red}`} />
           <i className={`${styles.terminal__button} ${styles.yellow}`} />
           <i className={`${styles.terminal__button} ${styles.green}`} />
-        </div>        
+        </div>
         <TextArea
           className={styles.textarea}
           value={value}
-          onChange={(e) => onChangeValue ?  onChangeValue(e.target.value) : null}
+          onChange={(e) => onChangeValue?.(e.target.value)}
           variant="soft"
         />
       </div>
@@ -154,10 +155,12 @@ export default function Terminal({ value, onClear, onChangeValue }: TerminalProp
           <CloudDownload strokeWidth={1.25} />
           Download
         </Button>
-        {onClear && (<Button size="4" variant="outline" onClick={onClear}>
-          <RotateCcw strokeWidth={1.25} />
-          Reset
-        </Button>)}
+        {onClear && (
+          <Button size="4" variant="outline" onClick={onClear}>
+            <RotateCcw strokeWidth={1.25} />
+            Reset
+          </Button>
+        )}
       </Flex>
     </Container>
   );

@@ -1,6 +1,6 @@
 # Robots.txt Generator
 
-Welcome to the **Robots.txt Generator**! This tool helps you create a `robots.txt` file easily. The project is built with [Next.js](https://nextjs.org/) and uses [Radix UI](https://radix-ui.com/) for the interface.
+Welcome to the **Robots.txt Generator**! This tool helps you create a `robots.txt` file easily. The project is built with [Astro](https://astro.build/) and uses [Radix UI](https://radix-ui.com/) for the interface.
 
 [Check it out here!](https://generaterobotstxt.com/)
 
@@ -12,7 +12,7 @@ Welcome to the **Robots.txt Generator**! This tool helps you create a `robots.tx
 - **Custom AI Bot Blocking**: Select specific AI bots to block from accessing your site.
 - **Sitemap Integration**: Add your sitemap URL to the `robots.txt` file.
 - **Downloadable Output**: Generate and download your custom `robots.txt` file.
-- **Validator**: Validate your `robots.txt` file and find erros.
+- **Validator**: Validate your `robots.txt` file and find errors.
 
 # Contributing
 

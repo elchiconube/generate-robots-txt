@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Grid,
   Text,
@@ -51,7 +49,7 @@ export default function Generator() {
     }));
   };
 
-  const updateValue = () => {
+  const updateValue = useCallback(() => {
     let updatedValue = value || "";
 
     Object.entries(selectedBots).forEach(([bot, checked]) => {
@@ -68,12 +66,11 @@ export default function Generator() {
     });
 
     setValue(updatedValue.trim());
-  };
+  }, [selectedBots, value]);
 
   useEffect(() => {
     updateValue();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedBots]);
+  }, [updateValue]);
 
   const onChangeSitemap = (url: string) => {
     setValue((prev) => {

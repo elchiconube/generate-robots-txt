@@ -1,18 +1,18 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import styles from './grid-decoration.module.css';
+import { useState, useEffect } from "react";
+import styles from "./grid-decoration.module.css";
 
 interface GridDecorationProps {
   rows?: number;
   cols?: number;
 }
 
-const GridDecoration: React.FC<GridDecorationProps> = ({ 
-  rows = 6, 
-  cols = 25 
+const GridDecoration: React.FC<GridDecorationProps> = ({
+  rows = 6,
+  cols = 25,
 }) => {
-  const [activeCells, setActiveCells] = useState<{[key: string]: boolean}>({});
+  const [activeCells, setActiveCells] = useState<{ [key: string]: boolean }>(
+    {}
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,15 +20,15 @@ const GridDecoration: React.FC<GridDecorationProps> = ({
       const row = Math.floor(Math.random() * rows);
       const col = Math.floor(Math.random() * cols);
       const cellId = `${row}-${col}`;
-      
-      setActiveCells(prev => ({
+
+      setActiveCells((prev) => ({
         ...prev,
-        [cellId]: !prev[cellId]
+        [cellId]: !prev[cellId],
       }));
 
       // Remove active state after 2 seconds
       setTimeout(() => {
-        setActiveCells(prev => {
+        setActiveCells((prev) => {
           const newState = { ...prev };
           delete newState[cellId];
           return newState;
@@ -49,7 +49,7 @@ const GridDecoration: React.FC<GridDecorationProps> = ({
             <div
               key={`${rowIndex}-${colIndex}`}
               className={`${styles.cell} ${
-                activeCells[`${rowIndex}-${colIndex}`] ? styles.active : ''
+                activeCells[`${rowIndex}-${colIndex}`] ? styles.active : ""
               }`}
             />
           ))}

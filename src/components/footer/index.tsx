@@ -1,5 +1,4 @@
 import { Container, Flex, Text } from "@radix-ui/themes";
-import Image from "next/image";
 import styles from "./footer.module.css";
 import CONSTANTS from "@/constants";
 
@@ -20,7 +19,7 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
             >
-              <Image
+              <img
                 alt="GitHub Logo"
                 loading="lazy"
                 width="28"
@@ -35,7 +34,7 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
             >
-              <Image
+              <img
                 alt="X Logo"
                 loading="lazy"
                 width="21"

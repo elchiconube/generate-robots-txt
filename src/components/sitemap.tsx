@@ -25,9 +25,7 @@ export default function Sitemap({ onChangeSitemap }: SitemapProps) {
         placeholder="https://yoursite.com/sitemap.xml"
         mt="3"
         onChange={(e) => onChangeSitemap(e.target.value)}
-      >
-        <TextField.Slot></TextField.Slot>
-      </TextField.Root>
+      />
     </Card>
   );
 }
