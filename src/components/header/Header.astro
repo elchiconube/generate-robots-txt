@@ -9,18 +9,6 @@ import styles from './header.module.css';
       <a class={styles.logo} href="/" title="Generate robots.txt dot com">
         <img alt="Generate robots.txt logo" loading="lazy" width="28" height="28" src="/images/logo.png" />
       </a>
-      <button
-        type="button"
-        class={styles.burger}
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="nav-menu"
-        id="burger-btn"
-      >
-        <span class={styles.burgerLine}></span>
-        <span class={styles.burgerLine}></span>
-        <span class={styles.burgerLine}></span>
-      </button>
       <nav class={styles.navWrap} id="nav-menu" role="navigation">
         <a class={styles.nav} href="/" title="Generate your robots.txt">Generator</a>
         <a class={styles.nav} href="/validator" title="Validate your robots.txt">Validator</a>
@@ -34,84 +22,3 @@ import styles from './header.module.css';
     </div>
   </div>
 </header>
-
-<script is:inline>
-  (function () {
-    function getEls() {
-      return {
-        header: document.getElementById('site-header'),
-        btn: document.getElementById('burger-btn'),
-        nav: document.getElementById('nav-menu')
-      };
-    }
-
-    function isOpen(header) {
-      return header && header.getAttribute('data-menu-open') === 'true';
-    }
-
-    function openMenu(header, btn) {
-      if (!header || !btn) return;
-      header.setAttribute('aria-expanded', 'true');
-      header.setAttribute('data-menu-open', 'true');
-      btn.setAttribute('aria-label', 'Cerrar menú');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeMenu(header, btn) {
-      if (!header || !btn) return;
-      header.setAttribute('aria-expanded', 'false');
-      header.removeAttribute('data-menu-open');
-      btn.setAttribute('aria-label', 'Abrir menú');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-
-    function toggle() {
-      var els = getEls();
-      if (!els.header || !els.btn || !els.nav) return;
-      if (isOpen(els.header)) {
-        closeMenu(els.header, els.btn);
-      } else {
-        openMenu(els.header, els.btn);
-      }
-    }
-
-    function setup() {
-      var els = getEls();
-      if (!els.header || !els.btn || !els.nav) return;
-
-      // Delegación de eventos: clic en el botón (o en cualquier hijo)
-      els.header.addEventListener('click', function (e) {
-        var target = e.target;
-        var btn = document.getElementById('burger-btn');
-        if (btn && (target === btn || btn.contains(target))) {
-          e.preventDefault();
-          e.stopPropagation();
-          toggle();
-        }
-      });
-
-      // Cerrar al hacer clic en un enlace del menú
-      els.nav.addEventListener('click', function (e) {
-        if (e.target && e.target.closest('a')) {
-          var refs = getEls();
-          closeMenu(refs.header, refs.btn);
-        }
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          var els = getEls();
-          if (els.header && els.btn && isOpen(els.header)) {
-            closeMenu(els.header, els.btn);
-          }
-        }
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setup);
-    } else {
-      setup();
-    }
-  })();
-</script>
