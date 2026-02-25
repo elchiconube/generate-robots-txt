@@ -11,15 +11,15 @@ const { feature } = Astro.props;
 
 <article class={styles.container}>
   <GridDecoration client:visible />
-  <div style="max-width: 1200px; margin: 0 auto; padding: var(--space-2) var(--space-9);">
-    <div style="display: flex; flex-direction: column; gap: var(--space-2); align-items: center;">
+  <div class={styles.inner}>
+    <div class={styles.content}>
       <Robot client:visible />
-      <h1 style="font-size: var(--font-size-9); margin-bottom: var(--space-4); text-align: center;">
+      <h1 class={styles.title}>
         {feature} your <span class={styles.text}>robots.txt</span>
       </h1>
-      <p style="font-size: var(--font-size-7); color: var(--gray-11);">The right robots.txt file for your project</p>
+      <p class={styles.subtitle}>The right robots.txt file for your project</p>
     </div>
-    <p style="text-align: center; margin-top: var(--space-5);">
+    <p class={styles.phWrap}>
       <a
         href="https://www.producthunt.com/posts/robots-txt-generator-3"
         target="_blank"

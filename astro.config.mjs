@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   site: 'https://generaterobotstxt.com/',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'compile',
+  }),
   integrations: [react()],
   vite: {
     resolve: {

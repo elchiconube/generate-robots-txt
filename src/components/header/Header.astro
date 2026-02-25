@@ -3,13 +3,13 @@ import CONSTANTS from '@/constants';
 import styles from './header.module.css';
 ---
 
-<header class={styles.header}>
+<header class={styles.header} id="site-header">
   <div class={styles.inner}>
     <div class={styles.row}>
       <a class={styles.logo} href="/" title="Generate robots.txt dot com">
         <img alt="Generate robots.txt logo" loading="lazy" width="28" height="28" src="/images/logo.png" />
       </a>
-      <nav class={styles.navWrap}>
+      <nav class={styles.navWrap} id="nav-menu" role="navigation">
         <a class={styles.nav} href="/" title="Generate your robots.txt">Generator</a>
         <a class={styles.nav} href="/validator" title="Validate your robots.txt">Validator</a>
         <a class={styles.nav} href="/analyze-robots" title="Analyze robots.txt from a website">Analyze Robots</a>

@@ -30,12 +30,13 @@ const RobotsAnalyzer = () => {
     }
   };
 
-  const handleSubmit = async (e?: React.FormEvent) => {
+  const handleSubmit = async (e?: React.FormEvent, urlOverride?: string) => {
     if (e) {
       e.preventDefault();
     }
 
-    const websiteUrl = validateUrl(url);
+    const inputUrl = urlOverride ?? url;
+    const websiteUrl = validateUrl(inputUrl);
     if (!websiteUrl) {
       setError('Please enter a valid domain');
       return;
@@ -72,12 +73,14 @@ const RobotsAnalyzer = () => {
     }
   };
 
-  const onClickSuggestion = (url: string) => {
-    setUrl(url);
-    const validUrl = validateUrl(url);
+  const onClickSuggestion = (suggestionUrl: string) => {
+    const validUrl = validateUrl(suggestionUrl);
     if (validUrl) {
       setUrl(validUrl);
-      handleSubmit();
+      handleSubmit(undefined, validUrl);
+    } else {
+      setUrl(suggestionUrl);
+      setError('Please enter a valid domain');
     }
   };
 

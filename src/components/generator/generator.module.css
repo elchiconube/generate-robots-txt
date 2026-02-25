@@ -8,6 +8,33 @@
 
 .sticky {
   position: sticky;
-  top: 80px;
+  top: 60px;
   z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .sticky {
+    top: 80px;
+  }
+}
+
+/* En móvil: una columna y la terminal arriba para que se vea sin scroll */
+@media (max-width: 639px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .terminalColumn {
+    order: 1;
+  }
+
+  .optionsColumn {
+    order: 2;
+  }
+
+  .sticky {
+    position: relative;
+    top: 0;
+  }
 }

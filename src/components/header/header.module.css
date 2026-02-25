@@ -15,15 +15,49 @@ html.dark .header {
 .inner {
   max-width: min(var(--container-4, 1200px), 100%);
   margin: 0 auto;
-  padding: var(--space-2, 8px) var(--space-6, 24px);
+  padding: var(--space-2, 8px) var(--space-4, 16px);
   box-sizing: border-box;
 }
 
-.navWrap {
-  display: flex;
-  gap: var(--space-5, 20px);
-  align-items: center;
-  flex-wrap: wrap;
+@media (min-width: 640px) {
+  .inner {
+    padding-left: var(--space-6, 24px);
+    padding-right: var(--space-6, 24px);
+  }
+}
+
+@media (max-width: 639px) {
+  .navWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 8px);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .navWrap .nav {
+    font-size: 0.8125rem;
+    padding: var(--space-1, 4px) var(--space-2, 8px);
+  }
+
+  .navWrap .nav:first-child,
+  .navWrap .link {
+    display: none;
+  }
+
+  .navWrap .sep {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .navWrap {
+    display: flex;
+    gap: var(--space-3, 12px);
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 }
 
 .row {
@@ -32,13 +66,27 @@ html.dark .header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  min-height: 48px;
+  position: relative;
+  z-index: 1;
 }
 
 .nav {
   color: var(--gray-12, #18181b);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   white-space: nowrap;
+  padding: var(--space-1, 4px) 0;
+}
+
+@media (min-width: 640px) {
+  .navWrap {
+    gap: var(--space-5, 20px);
+  }
+
+  .nav {
+    font-size: 0.9375rem;
+  }
 }
 
 .dark .nav,
@@ -66,6 +114,12 @@ html.dark .nav {
   height: 1.25em;
   background: var(--gray-6, #d4d4d8);
   flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .sep {
+    display: none;
+  }
 }
 
 .dark .sep,

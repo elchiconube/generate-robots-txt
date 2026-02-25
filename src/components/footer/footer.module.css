@@ -1,10 +1,16 @@
 .footer {
-  padding: var(--space-4, 16px) var(--space-6, 24px);
+  padding: var(--space-4, 16px) var(--space-4, 16px);
   border-top: 1px solid var(--gray-4, #e4e4e7);
   margin-top: var(--space-4, 16px);
   background-color: var(--color-background, #ffffff);
   height: auto;
   min-height: 0;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    padding: var(--space-5, 20px) var(--space-6, 24px);
+  }
 }
 
 .dark .footer,
@@ -21,16 +27,18 @@ html.dark .footer {
 
 .row {
   display: flex;
-  gap: var(--space-4, 16px);
+  flex-direction: column;
+  gap: var(--space-3, 12px);
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
 .text {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--gray-12, #18181b);
+  line-height: 1.4;
 }
 
 .dark .text,
@@ -42,6 +50,20 @@ html.dark .text {
   display: flex;
   gap: var(--space-4, 16px);
   align-items: center;
+}
+
+@media (min-width: 480px) {
+  .row {
+    flex-direction: row;
+    gap: var(--space-4, 16px);
+    text-align: left;
+  }
+}
+
+@media (min-width: 640px) {
+  .text {
+    font-size: 0.9375rem;
+  }
 }
 
 .link {
