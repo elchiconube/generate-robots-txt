@@ -1,5 +1,3 @@
-import { Container, Flex, Text } from "@radix-ui/themes";
-import Image from "next/image";
 import styles from "./footer.module.css";
 import CONSTANTS from "@/constants";
 
@@ -7,12 +5,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <Container px="6" py="2" size="4">
-        <Flex gap="4" align="center" justify="between">
-          <Text className={styles.text} weight={"bold"}>
+      <div className={styles.inner}>
+        <div className={styles.row}>
+          <span className={styles.text}>
             © {currentYear} Generate robots.txt dot com
-          </Text>
-          <Flex gap="4" align="center">
+          </span>
+          <div className={styles.icons}>
             <a
               className={styles.link}
               aria-label="GitHub"
@@ -20,7 +18,7 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
             >
-              <Image
+              <img
                 alt="GitHub Logo"
                 loading="lazy"
                 width="28"
@@ -35,7 +33,7 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
             >
-              <Image
+              <img
                 alt="X Logo"
                 loading="lazy"
                 width="21"
@@ -44,9 +42,9 @@ export default function Footer() {
                 style={{ position: "relative", top: "2px" }}
               />
             </a>
-          </Flex>
-        </Flex>
-      </Container>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

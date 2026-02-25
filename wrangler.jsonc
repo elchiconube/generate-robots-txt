@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "generate-robots-txt",
+  "compatibility_date": "2025-02-04",
+  "pages_build_output_dir": "./dist",
+  "observability": {
+    "enabled": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SESSION",
+      "id": "7d524f6dfa294d99bf69df3ac0fcb9ed"
+      // Optional: "preview_id" for local dev with `wrangler pages dev ./dist`
+      // "preview_id": "<ID_OF_PREVIEW_KV_NAMESPACE_FOR_LOCAL_DEVELOPMENT>"
+    }
+  ]
+}

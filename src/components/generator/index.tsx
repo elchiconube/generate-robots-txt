@@ -1,7 +1,6 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import {
+  Theme,
   Grid,
   Text,
   Inset,
@@ -105,6 +104,7 @@ export default function Generator() {
   };
 
   return (
+    <Theme>
     <Container p="2">
       <Grid columns="2" gap="6" width="auto" py="6">
         <Grid columns="1" gap="6">
@@ -202,5 +202,6 @@ export default function Generator() {
         </div>
       </Grid>
     </Container>
+    </Theme>
   );
 }

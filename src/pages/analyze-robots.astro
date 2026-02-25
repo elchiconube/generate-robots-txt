@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import RobotsAnalyzer from '@/components/analyzer';
+---
+
+<BaseLayout title="Analyze Robots - Robots.txt Generator" description="Analyze robots.txt from any website.">
+  <main>
+    <RobotsAnalyzer client:load />
+  </main>
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/hero/Hero.astro';
+import Validate from '@/components/validate';
+---
+
+<BaseLayout title="Validator - Robots.txt Generator" description="Validate your robots.txt file syntax.">
+  <main>
+    <Hero feature="Validate" />
+    <Validate client:load />
+  </main>
+</BaseLayout>

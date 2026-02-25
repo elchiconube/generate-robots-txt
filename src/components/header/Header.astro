@@ -1,0 +1,24 @@
+---
+import CONSTANTS from '@/constants';
+import styles from './header.module.css';
+---
+
+<header class={styles.header}>
+  <div class={styles.inner}>
+    <div class={styles.row}>
+      <a class={styles.logo} href="/" title="Generate robots.txt dot com">
+        <img alt="Generate robots.txt logo" loading="lazy" width="28" height="28" src="/images/logo.png" />
+      </a>
+      <nav class={styles.navWrap}>
+        <a class={styles.nav} href="/" title="Generate your robots.txt">Generator</a>
+        <a class={styles.nav} href="/validator" title="Validate your robots.txt">Validator</a>
+        <a class={styles.nav} href="/analyze-robots" title="Analyze robots.txt from a website">Analyze Robots</a>
+        <a class={styles.nav} href="#faqs" title="Frequently Asked Questions">FAQs</a>
+        <span class={styles.sep} aria-hidden="true" />
+        <a class={styles.link} href={CONSTANTS.repository} rel="noreferrer" target="_blank" title="Check the project on GitHub">
+          <img alt="GitHub Logo" loading="lazy" width="28" height="21" src="/images/github.svg" />
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>

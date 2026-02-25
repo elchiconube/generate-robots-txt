@@ -1,7 +1,6 @@
-"use client";
-
-import { JSX, useState, FormEvent } from 'react';
-import { TextField, Button, Card, Box, Text, Container, Code, Grid, Heading } from '@radix-ui/themes';
+import { useState } from 'react';
+import { Theme, TextField, Button, Card, Box, Text, Container, Code, Grid, Heading } from '@radix-ui/themes';
+import { cleanRobotsTxt, analyzeRobotsTxt } from '@/lib/analyze-robots';
 import Terminal from '@/components/terminal';
 import GridDecoration from '@/components/grid-decoration';
 import Showcase from '@/components/showcase';
@@ -31,7 +30,7 @@ const RobotsAnalyzer = () => {
     }
   };
 
-  const handleSubmit = async (e?: FormEvent) => {
+  const handleSubmit = async (e?: React.FormEvent) => {
     if (e) {
       e.preventDefault();
     }
@@ -46,20 +45,28 @@ const RobotsAnalyzer = () => {
     setError('');
 
     try {
-      const robotsUrl = new URL('/robots.txt', websiteUrl).href;
-      const response = await fetch('/api/analyze-robots', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: robotsUrl })
-      });
+      const apiUrl = `/api/fetch-robots?url=${encodeURIComponent(websiteUrl)}`;
+      const response = await fetch(apiUrl);
+      const data = await response.json().catch(() => ({}));
 
-      if (!response.ok) throw new Error('Failed to fetch robots.txt');
-      
-      const data = await response.json();
-      setAnalysis(data.analysis);
-      setRobotsContent(data.content);
+      if (!response.ok) {
+        setError(typeof data?.error === 'string' ? data.error : 'Could not fetch robots.txt');
+        return;
+      }
+
+      const content = data?.content;
+      if (typeof content !== 'string') {
+        setError('Invalid response from server');
+        return;
+      }
+
+      setRobotsContent(cleanRobotsTxt(content));
+      setAnalysis(analyzeRobotsTxt(content));
     } catch (err) {
-      setError('Could not fetch or analyze robots.txt');
+      const message = err instanceof TypeError && err.message.includes('fetch')
+        ? 'Could not load (possible CORS restriction). Try another site.'
+        : 'Could not fetch or analyze robots.txt';
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -81,8 +88,8 @@ const RobotsAnalyzer = () => {
   };
 
   const renderPaths = (lines: string[]) => {
-    let content: JSX.Element[] = [];
-    let pathsContent: JSX.Element[] = [];
+    const content: React.ReactElement[] = [];
+    let pathsContent: React.ReactElement[] = [];
     let inPathsBlock = false;
     let blockId = 0;
   
@@ -119,6 +126,7 @@ const RobotsAnalyzer = () => {
   };
 
   return (
+    <Theme>
     <Container className={styles.container} size="2">
       <GridDecoration />
       <Box className={styles.box}>
@@ -167,6 +175,7 @@ const RobotsAnalyzer = () => {
         <Showcase onClickWebsite={onClickSuggestion} />
       </Box>
     </Container>
+    </Theme>
   );
 };
 

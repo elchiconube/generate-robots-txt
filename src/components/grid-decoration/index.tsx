@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import styles from './grid-decoration.module.css';
 
