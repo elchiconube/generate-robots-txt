@@ -105,8 +105,9 @@ export default function Generator() {
 
   return (
     <Theme>
-    <Container p="2">
-      <Grid columns="2" gap="6" width="auto" py="6">
+    <Container p="2" className={styles.generatorWrap}>
+      <Grid columns="2" gap="6" width="auto" py="6" className={styles.grid}>
+        <div className={styles.optionsColumn}>
         <Grid columns="1" gap="6">
           <Heading as="h2" align="center">
             Start selecting a default configuration
@@ -184,7 +185,8 @@ export default function Generator() {
 
           <Sitemap onChangeSitemap={onChangeSitemap} />
         </Grid>
-        <div>
+        </div>
+        <div className={styles.terminalColumn}>
           <div className={styles.sticky}>
             <Heading as="h2" align="center">
               Your <span className={styles.code}>robots.txt</span> file

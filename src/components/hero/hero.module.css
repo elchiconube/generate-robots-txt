@@ -1,4 +1,5 @@
 .container {
+  background-color: var(--color-background, #ffffff);
   border-bottom: 1px solid var(--gray-4);
   margin-bottom: var(--space-4);
   height: 85dvh;
@@ -7,10 +8,80 @@
   position: relative;
 }
 
+.dark .container,
+html.dark .container {
+  background-color: var(--color-background, #0a0a0a);
+  border-bottom-color: var(--gray-4, #27272a);
+}
+
+.title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: var(--space-4);
+  text-align: center;
+  color: var(--gray-12, #18181b);
+}
+
+.dark .title,
+html.dark .title {
+  color: #ffffff;
+}
+
+.subtitle {
+  font-size: var(--font-size-7);
+  color: var(--gray-11, #52525b);
+}
+
+.dark .subtitle,
+html.dark .subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .text {
   background-color: var(--gray-4);
   padding: var(--space-2);
   font-weight: lighter;
   border-radius: var(--radius-4);
   font-family: var(--code-font);
+}
+
+.dark .text,
+html.dark .text {
+  background-color: var(--gray-4, #27272a);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-4);
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.phWrap {
+  text-align: center;
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  .title {
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding-left: var(--space-9);
+    padding-right: var(--space-9);
+  }
 }

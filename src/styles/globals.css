@@ -4,6 +4,19 @@
   --text-area-border-width: 0px;
 }
 
+body {
+  background-color: var(--color-background, #ffffff);
+}
+
+html.dark body {
+  background-color: var(--color-background, #0a0a0a);
+}
+
+html.dark .rt-Container,
+.dark .rt-Container {
+  background-color: var(--color-background, #0a0a0a);
+}
+
 textarea {
   border-style: none;
   border-color: transparent;

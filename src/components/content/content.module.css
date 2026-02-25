@@ -1,7 +1,8 @@
 .container {
+  background-color: var(--color-background, #ffffff);
   max-width: min(var(--container-3, 1024px), 100%);
   margin: 0 auto;
-  padding: var(--space-6, 24px) var(--space-4, 16px);
+  padding: var(--space-4, 16px) var(--space-4, 16px);
   border-top: 1px solid var(--gray-4, #e4e4e7);
   min-height: 60vh;
   display: flex;
@@ -10,8 +11,15 @@
   box-sizing: border-box;
 }
 
+@media (min-width: 640px) {
+  .container {
+    padding: var(--space-6, 24px) var(--space-6, 24px);
+  }
+}
+
 .dark .container,
 html.dark .container {
+  background-color: var(--color-background, #0a0a0a);
   border-top-color: var(--gray-4, #27272a);
 }
 
@@ -19,20 +27,41 @@ html.dark .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-6, 24px);
+  gap: var(--space-4, 16px);
   flex-wrap: wrap;
   width: 100%;
+}
+
+@media (min-width: 640px) {
+  .article {
+    gap: var(--space-6, 24px);
+  }
 }
 
 .article figure {
   margin: 0;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .article figure img {
   display: block;
-  max-width: 100%;
+  max-width: 50%;
+  width: min(50%, 280px);
   height: auto;
+}
+
+@media (min-width: 640px) {
+  .article figure {
+    width: auto;
+  }
+
+  .article figure img {
+    max-width: 100%;
+    width: min(100%, 400px);
+  }
 }
 
 .article > div {
@@ -42,7 +71,7 @@ html.dark .container {
 }
 
 .title {
-  font-size: var(--font-size-8, 2rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0 0 var(--space-3, 12px);
   font-weight: 600;
   color: var(--gray-12, #18181b);

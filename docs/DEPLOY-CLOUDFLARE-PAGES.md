@@ -33,19 +33,21 @@ Guarda el archivo y haz commit (o ten en cuenta que en CI/CD puedes usar una var
 
 1. En **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
 2. Conecta tu cuenta de GitHub/GitLab y elige el repositorio del proyecto.
-3. Configura el proyecto así:
+3. **Configuración del build (importante):** Este proyecto es **Astro**, no Next.js. Configura exactamente así:
 
    | Campo | Valor |
    |-------|--------|
+   | **Framework preset** | **None** (o **Astro** si aparece). **No uses Next.js.** |
    | **Build command** | `npm run build` |
    | **Build output directory** | `dist` |
    | **Root directory** | (dejar vacío si el repo es la raíz del proyecto) |
-   | **Framework preset** | `Astro` (opcional; no cambia el comando si ya usas el de arriba) |
 
-4. En **Environment variables** (opcional): si no quieres el ID de KV en el repo, puedes definir una variable (p. ej. `KV_NAMESPACE_ID`) y en el build usar un script que genere o modifique `wrangler.jsonc` con ese valor. Por defecto, con el ID en `wrangler.jsonc` no hace falta nada más.
+   Si dejas el preset en **Next.js**, Cloudflare ejecutará `@cloudflare/next-on-pages` y el build fallará con "No Next.js version detected".
+
+4. En **Environment variables** (opcional): no es necesario si el ID de KV está en `wrangler.jsonc`.
 5. Pulsa **Save and Deploy**.
 
-Cloudflare construirá el proyecto con `npm run build` y desplegará el contenido de `dist` (HTML estático + `_worker.js` y `_routes.json` para la función `/api/fetch-robots`).
+Cloudflare construirá el proyecto con `npm run build` (Astro) y desplegará el contenido de `dist` (HTML estático + `_worker.js` y `_routes.json` para la función `/api/fetch-robots`).
 
 ## 3. Despliegue desde la terminal (alternativa)
 
@@ -67,6 +69,17 @@ El nombre del proyecto (`--project-name`) debe coincidir con el que tengas en Cl
 - Página principal: `https://tu-proyecto.pages.dev/`
 - Analizador: `https://tu-proyecto.pages.dev/analyze-robots`
 - La llamada a `/api/fetch-robots?url=https://example.com` debe devolver el contenido de `https://example.com/robots.txt` (sin errores de CORS).
+
+## Si el despliegue falla con "No Next.js version detected"
+
+Cloudflare está usando el preset **Next.js** y ejecutando `@cloudflare/next-on-pages`. Este proyecto es **Astro**.
+
+1. Ve a **Workers & Pages** → tu proyecto **generate-robots-txt** → **Settings** → **Builds & deployments**.
+2. En **Build configuration**, edita:
+   - **Framework preset**: cámbialo a **None** (o **Astro**).
+   - **Build command**: debe ser exactamente `npm run build`.
+   - **Build output directory**: `dist`.
+3. Guarda y vuelve a desplegar (**Deployments** → **Retry deployment** o un nuevo push).
 
 ## Notas
 

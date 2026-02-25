@@ -8,17 +8,17 @@ const websites = [
    color: "var(--grass-9)",
    url: "https://www.tinybird.co/"
  },
- { 
-   name: "Topdelmes",
-   robots: "TV shows and movies reviews and rankings site", 
+ {
+   name: "Wikipedia",
+   robots: "The free encyclopedia",
    color: "var(--amber-9)",
-   url: "https://www.topdelmes.com"
+   url: "https://www.wikipedia.org"
  },
  {
-   name: "Marketgoo",
-   robots: "Empower web hosts, agencies, & SMB providers",
+   name: "GitHub",
+   robots: "Code hosting and collaboration for developers",
    color: "var(--blue-9)",
-   url: "https://www.marketgoo.com/"
+   url: "https://github.com"
  },
  {
   name: "Faedo Digital",
