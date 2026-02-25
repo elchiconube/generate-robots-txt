@@ -1,0 +1,27 @@
+---
+import CONSTANTS from '@/constants';
+import styles from './content.module.css';
+---
+
+<div class={styles.container}>
+  <article class={styles.article}>
+    <figure>
+      <img src="/images/code.svg" width="400" height="400" alt="Robots.txt" />
+    </figure>
+    <div>
+      <h2 class={styles.title}>Why to use this generator?</h2>
+      <p class={styles.text}>
+        I developed this free <span class={styles.code}>robots.txt</span> generator and{' '}
+        <a href="/validator" title="Robots.txt validator tool" class={styles.link}>validator tool</a>{' '}
+        to help webmasters, SEO experts, and marketers quickly and easily create this required file.
+      </p>
+      <p class={styles.text}>
+        You can start using the ready-made suggestions. In the first case, you customize the file by setting up directives (allow or disallow crawling), the path (specific pages and files), and the bots that should follow the directives. Or you can choose a ready-made <span class={styles.code}>robots.txt</span> template containing a set of the most common general and CMS directives. You may also add a sitemap to the file.
+      </p>
+      <p class={styles.text}>
+        This is an open-source project, and everyone is welcome to participate. You can contribute to the project on our{' '}
+        <a href={CONSTANTS.repository} title="Github project" target="_blank" rel="noopener noreferrer" class={styles.link}>GitHub repository</a>.
+      </p>
+    </div>
+  </article>
+</div>

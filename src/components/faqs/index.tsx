@@ -1,6 +1,5 @@
-'use client';
-
 import {
+  Theme,
   Heading,
   Card,
   Grid,
@@ -11,14 +10,13 @@ import {
 } from "@radix-ui/themes";
 import { motion } from "framer-motion";
 
-import {
+import type {
   CodeBlockProps,
   ListItemsProps,
   LinksProps,
   AnimatedFaqCardProps,
 } from "./types";
 import styles from "./faqs.module.css";
-import Link from "next/link";
 
 const faqData = [
   {
@@ -52,8 +50,8 @@ const faqData = [
     ],
     codeBlocks: [
       {
-        code: "Disallow: / # allow to crawl the entire website",
-        label: "Example 1"
+        code: "User-agent: *\nDisallow:",
+        label: "Example 1 - Allow to crawl the entire website (empty Disallow)"
       },
       {
         code: "Disallow: /folder/",
@@ -180,14 +178,14 @@ const Links: React.FC<LinksProps> = ({ links }) => (
   <ul className={styles.list}>
     {links.map((link) => (
       <li key={link.url} className={styles.item}>
-        <Link
-          href={link.url} 
-          rel="noopener noreferrer" 
+        <a
+          href={link.url}
+          rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
         >
           {link.text}
-        </Link>
+        </a>
       </li>
     ))}
   </ul>
@@ -246,6 +244,7 @@ const AnimatedFaqCard: React.FC<AnimatedFaqCardProps> = ({ faq, index }) => {
 
 const Faqs: React.FC = () => {
   return (
+    <Theme>
     <Container id="faqs" className={styles.container}>
       <Heading as="h2" size="8" align="center" mb="2">
         Frequently asked questions
@@ -264,6 +263,7 @@ const Faqs: React.FC = () => {
         ))}
       </Grid>
     </Container>
+    </Theme>
   );
 }
 

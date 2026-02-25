@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/hero/Hero.astro';
+import Generator from '@/components/generator';
+import Content from '@/components/content/Content.astro';
+---
+
+<BaseLayout>
+  <main>
+    <Hero feature="Generate" />
+    <Generator client:load />
+    <Content />
+  </main>
+</BaseLayout>

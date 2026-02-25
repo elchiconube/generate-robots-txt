@@ -38,7 +38,7 @@
 }
 
 .cardContent {
-  background: white;
+  background: var(--color-panel, var(--gray-2));
   padding: var(--space-5);
   position: relative;
   overflow: hidden;

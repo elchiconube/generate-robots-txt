@@ -18,6 +18,12 @@
     margin-bottom: var(--space-3);
   }
 
+  .link {
+    text-decoration: underline;
+    font-weight: bold;
+    color: var(--gray-12);
+  }
+
   .text {
     font-size: var(--font-2);
     margin-bottom: var(--space-3);

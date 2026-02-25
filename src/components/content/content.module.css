@@ -1,31 +1,96 @@
 .container {
-  padding: var(--space-6) 0;
-  border-top: 1px solid var(--gray-4);
+  max-width: min(var(--container-3, 1024px), 100%);
+  margin: 0 auto;
+  padding: var(--space-6, 24px) var(--space-4, 16px);
+  border-top: 1px solid var(--gray-4, #e4e4e7);
   min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+}
+
+.dark .container,
+html.dark .container {
+  border-top-color: var(--gray-4, #27272a);
 }
 
 .article {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-6, 24px);
+  flex-wrap: wrap;
+  width: 100%;
+}
 
-  .title {
-    margin-bottom: var(--space-3);
-  }
+.article figure {
+  margin: 0;
+  flex-shrink: 0;
+}
 
-  .text {
-    font-size: var(--font-2);
-    margin-bottom: var(--space-3);
-    .code {
-      font-family: var(--code-font);
-      padding: var(--space-1);
-      background-color: var(--gray-4);
-      border-radius: var(--radius-2);
-      font-weight: lighter;
-    }
-  }
+.article figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.article > div {
+  flex: 1;
+  min-width: 0;
+  max-width: 42rem;
+}
+
+.title {
+  font-size: var(--font-size-8, 2rem);
+  margin: 0 0 var(--space-3, 12px);
+  font-weight: 600;
+  color: var(--gray-12, #18181b);
+  line-height: 1.2;
+}
+
+.dark .title,
+html.dark .title {
+  color: var(--gray-12, #fafafa);
+}
+
+.text {
+  font-size: var(--font-2, 0.875rem);
+  margin: 0 0 var(--space-3, 12px);
+  line-height: 1.6;
+  color: var(--gray-12, #18181b);
+}
+
+.dark .text,
+html.dark .text {
+  color: var(--gray-12, #fafafa);
+}
+
+.text .code {
+  font-family: var(--code-font, "Fira Code", Consolas, monospace);
+  padding: var(--space-1, 4px) var(--space-2, 8px);
+  background-color: var(--gray-4, #e4e4e7);
+  border-radius: var(--radius-2, 6px);
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.dark .text .code,
+html.dark .text .code {
+  background-color: var(--gray-4, #27272a);
+}
+
+.link {
+  text-decoration: underline;
+  font-weight: 700;
+  color: var(--gray-12, #18181b);
+}
+
+.dark .link,
+html.dark .link {
+  color: var(--gray-12, #fafafa);
+}
+
+.link:hover {
+  text-decoration: underline;
 }

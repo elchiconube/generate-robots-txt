@@ -1,0 +1,71 @@
+---
+import ThemeProvider from '@/components/ThemeProvider';
+import Header from '@/components/header/Header.astro';
+import Faqs from '@/components/faqs';
+import Contribute from '@/components/contribute';
+import Footer from '@/components/footer';
+import '@radix-ui/themes/styles.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "Robots.txt Generator - A beautifully open-source robots.txt generator", description = "An open-source robots.txt generator." } = Astro.props;
+const site = 'https://generaterobotstxt.com';
+const canonicalUrl = new URL(Astro.url.pathname, site).href;
+const ogImage = `${site}/images/og_image.png`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171717" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+    <link rel="icon" type="image/png" sizes="any" href="/images/logo.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <script is:inline define:vars={{}}>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'system';
+        var resolved = theme === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : theme;
+        document.documentElement.classList.add(resolved);
+      })();
+    </script>
+  </head>
+  <body style="font-family: 'Inter', sans-serif;">
+    <ThemeProvider client:load>
+      <Header />
+      <slot />
+      <Faqs client:load />
+      <Contribute client:load />
+      <Footer client:load />
+    </ThemeProvider>
+    {import.meta.env.PROD && (
+      <script async src="https://cloud.umami.is/script.js" data-website-id="03fb5087-8d74-47f2-a3ee-e4725b26e1cd" />
+    )}
+  </body>
+</html>
+
+<style is:global>
+  @import '@/styles/globals.css';
+</style>

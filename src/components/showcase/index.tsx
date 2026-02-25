@@ -1,5 +1,3 @@
-"use client";
-
 import { Heading, Text } from '@radix-ui/themes';
 import styles from './showcase.module.css';
 

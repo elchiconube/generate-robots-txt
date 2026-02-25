@@ -1,7 +1,5 @@
-"use client";
-
 import { useState } from "react";
-import { Container, Heading, Text } from "@radix-ui/themes";
+import { Theme, Container, Heading, Text } from "@radix-ui/themes";
 
 import Terminal from "@/components/terminal";
 
@@ -15,6 +13,7 @@ export default function Validate() {
   };
 
   return (
+    <Theme>
     <Container maxWidth="var(--container-2)" className={styles.container}>
       <Heading as="h2" align="center" mb="3" size="8">
         Check your <span className={styles.code}>robots.txt</span> file
@@ -29,5 +28,6 @@ export default function Validate() {
         onClear={onReset}
       />
     </Container>
+    </Theme>
   );
 }
