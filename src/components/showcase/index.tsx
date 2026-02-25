@@ -10,8 +10,7 @@ const websites = [
   },
   {
     name: "Wikipedia",
-    robots:
-      "The free encyclopedia for everyone to use and edit it freely and collaboratively",
+    robots: "The free encyclopedia for everyone to use and edit it freely",
     color: "var(--amber-9)",
     url: "https://www.wikipedia.org",
   },
