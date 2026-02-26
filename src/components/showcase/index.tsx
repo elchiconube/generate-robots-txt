@@ -26,6 +26,12 @@ const websites = [
     color: "var(--grass-9)",
     url: "https://faedodigital.com/",
   },
+  {
+    name: "bqeducacion.cc",
+    robots: "Education and technology learning resources",
+    color: "var(--violet-9)",
+    url: "https://bqeducacion.cc",
+  },
 ];
 
 interface ShowcaseCardProps {
