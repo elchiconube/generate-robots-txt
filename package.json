@@ -13,7 +13,7 @@
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/cloudflare": "^13.1.4",
     "@radix-ui/themes": "^3.2.1",
     "astro": "^5.18.1",
     "framer-motion": "^11.18.2",
